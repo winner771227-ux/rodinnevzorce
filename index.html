@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>rodinnevzorce.cz · Petr</title>
+<meta name="description" content="Skupinové rodinné konstelace ve Šternberku. Opakující se vzorce ve vztazích, rodová témata, únava bez jména – uvidět, odkud přicházejí, a nechat je jít.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FAF6F0;
+  --teal:#2C5F5D;
+  --teal-dark:#224A48;
+  --terra:#C4704B;
+  --terra-dark:#A85C3C;
+  --sand:#EFE7DC;
+  --ink:#2B2B2B;
+  --grey:#6B655D;
+  --serif:'Lora',Georgia,'Times New Roman',serif;
+  --sans:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+body{
+  font-family:var(--sans);
+  font-size:18px;
+  line-height:1.65;
+  color:var(--ink);
+  background:var(--cream);
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:var(--serif);color:var(--teal);font-weight:500;line-height:1.25}
+a{color:var(--terra)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--terra);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+.narrow{max-width:720px;margin:0 auto}
+
+/* ---------- NAV ---------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(250,246,240,.94);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--sand);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{font-family:var(--serif);font-size:1.15rem;color:var(--teal);text-decoration:none;font-weight:600;letter-spacing:.01em}
+.brand span{color:var(--terra)}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{color:var(--ink);text-decoration:none;font-size:.95rem;font-weight:500;padding:6px 2px;border-bottom:2px solid transparent}
+.nav-links a:hover{color:var(--teal)}
+.nav-links a.active{color:var(--teal);border-bottom-color:var(--terra)}
+.btn{
+  display:inline-block;background:var(--terra);color:#fff;text-decoration:none;
+  font-weight:600;font-size:1rem;padding:14px 28px;border-radius:6px;border:none;cursor:pointer;
+  transition:background .15s ease;
+}
+.btn:hover{background:var(--terra-dark)}
+.btn.small{padding:10px 20px;font-size:.9rem}
+.btn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.7)}
+.btn.ghost:hover{background:rgba(255,255,255,.12)}
+.menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:10px}
+.menu-toggle span{display:block;width:24px;height:2px;background:var(--teal);margin:5px 0;transition:transform .2s}
+@media(max-width:820px){
+  .menu-toggle{display:block}
+  .nav-links{
+    position:absolute;top:72px;left:0;right:0;
+    background:var(--cream);border-bottom:1px solid var(--sand);
+    flex-direction:column;gap:0;padding:8px 0 16px;display:none;
+  }
+  .nav-links.open{display:flex}
+  .nav-links li{width:100%;text-align:center}
+  .nav-links a{display:block;padding:14px}
+  .nav-links .nav-cta{margin-top:8px}
+}
+
+/* ---------- PAGES ---------- */
+.page{display:none}
+.page.visible{display:block}
+section{padding:72px 0}
+@media(max-width:640px){section{padding:52px 0}}
+.sand{background:var(--sand)}
+.teal-band{background:var(--teal);color:#fff}
+.teal-band h2{color:#fff}
+.eyebrow{
+  font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--terra);margin-bottom:14px;
+}
+h2.sec{font-size:clamp(1.6rem,3.4vw,2.2rem);margin-bottom:22px}
+p+p{margin-top:16px}
+.lead{font-size:1.12rem}
+.accent-line{
+  font-family:var(--serif);font-style:italic;color:var(--teal);
+  font-size:clamp(1.25rem,2.6vw,1.55rem);line-height:1.5;text-align:center;
+  max-width:640px;margin:36px auto 0;
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  padding:84px 0 64px;
+  background:linear-gradient(160deg,var(--cream) 55%,var(--sand) 100%);
+  overflow:hidden;
+}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+@media(max-width:820px){.hero-grid{grid-template-columns:1fr;gap:28px}}
+.hero h1{font-size:clamp(2rem,4.6vw,3.1rem);margin-bottom:20px}
+.hero p{font-size:1.15rem;color:var(--grey);max-width:34em}
+.hero-cta{margin-top:32px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.hero-cta .quiet{color:var(--teal);font-weight:500;text-decoration:none;border-bottom:1.5px solid var(--terra);padding-bottom:2px}
+.hero-cta .quiet:hover{color:var(--terra)}
+.chairs{width:100%;max-width:400px;margin:0 auto;display:block}
+.hero-strip{
+  margin-top:56px;border-top:1px solid rgba(44,95,93,.18);padding-top:18px;
+  font-size:.92rem;color:var(--grey);letter-spacing:.03em;
+  display:flex;gap:10px;flex-wrap:wrap;justify-content:center;text-align:center;
+}
+.hero-strip b{color:var(--teal);font-weight:600}
+.hero-strip .dot{color:var(--terra)}
+
+/* ---------- CARDS ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:34px}
+.card{
+  background:var(--cream);border:1px solid rgba(44,95,93,.12);border-radius:8px;
+  padding:26px 24px;font-size:1rem;line-height:1.55;
+}
+.sand .card{background:#fff}
+.rule-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:34px}
+.rule{background:#fff;border:1px solid rgba(44,95,93,.12);border-radius:8px;padding:30px 26px}
+.rule .num{font-family:var(--serif);font-size:2.6rem;color:var(--teal);line-height:1;opacity:.35}
+.rule h3{font-size:1.12rem;margin:12px 0 10px;color:var(--teal)}
+.rule p{font-size:.98rem;color:var(--ink)}
+
+/* ---------- SPLIT ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+@media(max-width:820px){.split{grid-template-columns:1fr;gap:28px}}
+
+/* ---------- PHOTO ---------- */
+.photo{
+  position:relative;border-radius:10px;overflow:hidden;
+  background:var(--sand);
+  border:1px solid rgba(44,95,93,.15);
+  box-shadow:0 18px 40px -22px rgba(43,43,43,.35);
+  aspect-ratio:4/3;
+}
+.photo img{
+  width:100%;height:100%;object-fit:cover;display:block;
+}
+.photo.tall{aspect-ratio:3/4}
+.photo.wide{aspect-ratio:16/10}
+.photo.portrait-top img{object-position:50% 8%}
+.photo.frame-tea img{object-position:50% 40%}
+.photo.frame-seminar img{object-position:50% 35%}
+.photo-caption{
+  margin-top:12px;font-size:.85rem;color:var(--grey);line-height:1.5;text-align:center;
+}
+
+/* ---------- TESTIMONIAL ---------- */
+.quote{max-width:680px;margin:0 auto;text-align:center;position:relative;padding-top:34px}
+.quote::before{
+  content:"\201C";position:absolute;top:-18px;left:50%;transform:translateX(-50%);
+  font-family:var(--serif);font-size:5.5rem;color:var(--terra);line-height:1;opacity:.55;
+}
+.quote p{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--teal);line-height:1.6}
+.quote cite{display:block;margin-top:18px;font-style:normal;font-size:.92rem;color:var(--grey)}
+
+/* ---------- TIMELINE ---------- */
+.timeline{margin-top:38px;position:relative;padding-left:34px}
+.timeline::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:rgba(196,112,75,.35)}
+.step{position:relative;padding-bottom:34px}
+.step:last-child{padding-bottom:0}
+.step::before{
+  content:"";position:absolute;left:-32px;top:7px;width:16px;height:16px;border-radius:50%;
+  background:var(--terra);border:3px solid var(--cream);box-shadow:0 0 0 1px rgba(196,112,75,.4);
+}
+.sand .step::before{border-color:var(--sand)}
+.step h3{font-size:1.1rem;margin-bottom:6px}
+.step p{font-size:1rem;color:var(--ink)}
+
+/* ---------- LISTS ---------- */
+ul.plain{list-style:none;margin-top:22px}
+ul.plain li{position:relative;padding:8px 0 8px 26px;font-size:1.02rem}
+ul.plain li::before{content:"\2013";position:absolute;left:0;color:var(--terra);font-weight:600}
+
+/* ---------- ABOUT ---------- */
+.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:52px;align-items:start}
+@media(max-width:820px){.about-grid{grid-template-columns:1fr}}
+.about h3{font-size:1.2rem;color:var(--terra);margin:32px 0 10px;font-family:var(--sans);font-weight:600}
+
+/* ---------- HONEST BOX ---------- */
+.honest{background:var(--sand);border-radius:10px;padding:38px 34px;margin-top:44px}
+.honest h3{font-size:1.25rem;margin-bottom:14px}
+.honest p{font-size:1rem}
+
+/* ---------- CONTACT ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+@media(max-width:820px){.contact-grid{grid-template-columns:1fr;gap:32px}}
+.info-list{list-style:none;margin-top:24px}
+.info-list li{padding:13px 0;border-bottom:1px solid rgba(44,95,93,.14);font-size:1rem}
+.info-list li b{color:var(--teal)}
+.todo{background:#F6E9E1;color:var(--terra-dark);padding:1px 7px;border-radius:4px;font-size:.85em;font-weight:600}
+
+/* ---------- FAQ ---------- */
+.faq{margin-top:8px}
+.faq-item{border-bottom:1px solid rgba(44,95,93,.16)}
+.faq-q{
+  width:100%;background:none;border:none;text-align:left;cursor:pointer;
+  font-family:var(--sans);font-size:1.02rem;font-weight:600;color:var(--teal);
+  padding:18px 36px 18px 0;position:relative;
+}
+.faq-q::after{
+  content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);
+  font-size:1.5rem;color:var(--terra);font-weight:400;transition:transform .2s;
+}
+.faq-item.open .faq-q::after{transform:translateY(-50%) rotate(45deg)}
+.faq-a{display:none;padding:0 0 20px;font-size:.99rem;color:var(--ink)}
+.faq-item.open .faq-a{display:block}
+
+/* ---------- CTA BAND ---------- */
+.cta-band{text-align:center}
+.cta-band h2{font-size:clamp(1.6rem,3.4vw,2.1rem);margin-bottom:14px}
+.cta-band p{max-width:34em;margin:0 auto 30px;color:rgba(255,255,255,.9)}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--teal-dark);color:rgba(255,255,255,.85);padding:44px 0 36px;font-size:.92rem}
+.foot-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start}
+footer a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35)}
+footer a:hover{border-bottom-color:#fff}
+footer .brand{color:#fff;font-size:1.05rem}
+footer .brand span{color:#E8A583}
+.foot-links{list-style:none;display:flex;gap:22px;flex-wrap:wrap}
+.foot-note{margin-top:26px;font-size:.82rem;color:rgba(255,255,255,.55)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#domu" data-nav="domu">rodinnevzorce<span>.cz</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Otevřít menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#domu" data-nav="domu">Domů</a></li>
+      <li><a href="#o-mne" data-nav="o-mne">O mně</a></li>
+      <li><a href="#metoda" data-nav="metoda">Metoda a průběh</a></li>
+      <li><a href="#kontakt" data-nav="kontakt">Kontakt</a></li>
+      <li class="nav-cta"><a class="btn small" href="https://konstelace-sternberk.reenio.cz" target="_blank" rel="noopener">Termíny</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ============================================================
+     STRÁNKA: DOMŮ
+============================================================ -->
+<main id="page-domu" class="page visible">
+
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <h1>Některé věci neseme, aniž&nbsp;bychom věděli proč.</h1>
+          <p>Opakující se vzorce ve vztazích, únava, která nemá jméno, pocit, že se točíte v kruhu. Rodinné konstelace umí ukázat, odkud to přichází – a jak to nechat jít.</p>
+          <div class="hero-cta">
+            <a class="btn" href="https://konstelace-sternberk.reenio.cz" target="_blank" rel="noopener">Podívat se na termíny</a>
+            <a class="quiet" href="#metoda" data-nav="metoda">Jak to probíhá</a>
+          </div>
+        </div>
+        <svg class="chairs" viewBox="0 0 400 320" fill="none" stroke="#2C5F5D" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+          <!-- kruh židlí, jedna povytažená -->
+          <ellipse cx="200" cy="185" rx="150" ry="78" stroke="#C4704B" stroke-width="1.5" stroke-dasharray="3 9" opacity=".6"/>
+          <!-- židle nahoře -->
+          <g transform="translate(178,64)"><path d="M4 0v26M40 0v26M4 8h36M0 26h44M8 26v18M36 26v18"/></g>
+          <!-- vlevo nahoře -->
+          <g transform="translate(66,110) rotate(28)"><path d="M4 0v26M40 0v26M4 8h36M0 26h44M8 26v18M36 26v18"/></g>
+          <!-- vpravo nahoře -->
+          <g transform="translate(300,90) rotate(-24)"><path d="M4 0v26M40 0v26M4 8h36M0 26h44M8 26v18M36 26v18"/></g>
+          <!-- vlevo -->
+          <g transform="translate(38,196) rotate(72)"><path d="M4 0v26M40 0v26M4 8h36M0 26h44M8 26v18M36 26v18"/></g>
+          <!-- vpravo -->
+          <g transform="translate(346,178) rotate(-70)"><path d="M4 0v26M40 0v26M4 8h36M0 26h44M8 26v18M36 26v18"/></g>
+          <!-- dole vlevo -->
+          <g transform="translate(112,262) rotate(148)"><path d="M4 0v26M40 0v26M4 8h36M0 26h44M8 26v18M36 26v18"/></g>
+          <!-- dole vpravo, povytažená z kruhu (pozvání) -->
+          <g transform="translate(272,292) rotate(-158)" stroke="#C4704B"><path d="M4 0v26M40 0v26M4 8h36M0 26h44M8 26v18M36 26v18"/></g>
+        </svg>
+      </div>
+      <div class="hero-strip">
+        <span><b>Skupinové semináře</b></span><span class="dot">·</span>
+        <span><b>Šternberk</b></span><span class="dot">·</span>
+        <span>jednou měsíčně</span><span class="dot">·</span>
+        <span>malá skupina, bezpečný prostor</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="sand">
+    <div class="wrap">
+      <p class="eyebrow">Pro koho tu jsem</p>
+      <h2 class="sec">Možná to znáte</h2>
+      <div class="cards">
+        <div class="card">Ve vztazích se vám opakuje stejný scénář – jen s jinými lidmi.</div>
+        <div class="card">Staráte se o všechny okolo a sami jste dlouhodobě vyčerpaní.</div>
+        <div class="card">Nosíte v sobě smutek nebo strach, pro který nemáte vysvětlení.</div>
+        <div class="card">Říkáte si: „už jsem to rozebrala tisíckrát, a stejně se nic nemění“.</div>
+      </div>
+      <p class="accent-line">Pokud jste přikývli aspoň jednou, nejste rozbití. Jen možná nesete něco, co vám nepatří. A&nbsp;to se dá změnit.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Metoda</p>
+        <h2 class="sec">Co se na semináři vlastně děje</h2>
+        <p>Rodinné konstelace jsou prožitková metoda. Členy vaší rodiny zastoupí lidé ze skupiny a rozestaví se v prostoru. To, co se pak ukáže, se nedá vymyslet – vztahy, napětí a pouta, o kterých se doma mlčí, jsou najednou vidět.</p>
+        <p>Nemusíte nic dlouze vyprávět ani analyzovat. Konstelace není o mluvení – je o uvidění. A to, co jednou uvidíte, už nejde nevidět.</p>
+        <p style="margin-top:22px"><a href="#metoda" data-nav="metoda" style="font-weight:600;text-decoration:none;border-bottom:1.5px solid var(--terra);padding-bottom:2px;color:var(--teal)">Přečíst si víc o metodě →</a></p>
+      </div>
+      <div>
+        <div class="photo wide">
+          <img src="hero.webp" alt="Kruh dřevěných židlí v prosvětlené seminární místnosti, připravený na konstelaci">
+        </div>
+        <p class="photo-caption">Prostor, kde se konstelace odehrávají – kruh židlí, přirozené světlo, klid.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFERENCE: placeholder – sekci zveřejnit až se skutečnou referencí.
+       Skrýt lze přidáním style="display:none" na <section>. -->
+  <section class="sand" id="reference">
+    <div class="wrap">
+      <div class="quote">
+        <p>[Sem patří skutečná reference – po nejbližším semináři požádejte 1–2 účastnice o pár vět. Do té doby tuto sekci skryjte.]</p>
+        <cite>— účastnice semináře</cite>
+      </div>
+    </div>
+  </section>
+
+  <section class="teal-band cta-band">
+    <div class="wrap">
+      <h2>První krok je přijít</h2>
+      <p>Semináře vedu ve Šternberku, zhruba jednou měsíčně, v malé skupině. Nemusíte mít připravené téma. Stačí zvědavost.</p>
+      <a class="btn" href="https://konstelace-sternberk.reenio.cz" target="_blank" rel="noopener">Podívat se na termíny</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     STRÁNKA: O MNĚ
+============================================================ -->
+<main id="page-o-mne" class="page">
+  <section>
+    <div class="wrap about-grid about">
+      <div>
+        <div class="photo tall portrait-top">
+          <img src="petr.webp" alt="Petr, průvodce rodinných konstelací, v seminární místnosti">
+        </div>
+      </div>
+      <div>
+        <p class="eyebrow">O mně</p>
+        <h2 class="sec">Jmenuji se Petr</h2>
+        <p class="lead">a rodinné konstelace mě před lety zasáhly dřív, než jsem stačil být skeptický.</p>
+        <p>Bylo to v roce 2020. Přišel jsem na svůj první seminář jako pozorovatel – zvědavý, s rukama založenýma. Odcházel jsem s pocitem, že jsem viděl něco, co neumím vysvětlit, ale co dávalo větší smysl než roky přemýšlení. Od té doby jsem konstelace nepustil.</p>
+        <p>Nejdřív jako účastník. Stavěl jsem vlastní témata, stál jsem v desítkách rolí pro druhé a postupně chápal, jak hluboko rodinné příběhy sahají. Až přišel moment, kdy jsem věděl, že chci ten prostor umět vytvářet pro ostatní.</p>
+
+        <h3>Vzdělání a cesta</h3>
+        <p>V letech 2024–2025 jsem absolvoval výcvik rodinných konstelací u Libora Zvolánka. Od roku 2025 pokračuji dalším výcvikem u Petra Mílka, psychiatra, který konstelace propojuje s odborným pohledem na lidskou psychiku. Vzdělávat se v téhle práci nejde přestat – a ani nechci.</p>
+
+        <h3>Jak pracuji</h3>
+        <p>Vedu skupinové semináře ve Šternberku, jednou měsíčně, v malé skupině. Záleží mi na třech věcech: bezpečí, klid a žádný tlak. Nikdy nikoho nenutím stavět, mluvit ani cítit něco, co necítí. Konstelace si najde svou cestu sama – moje práce je držet prostor, ve kterém se to může stát.</p>
+        <p>Nejsem terapeut v klinickém smyslu a nehraju si na něj. Jsem průvodce. Věřím, že odpovědi máte v sobě – konstelace je způsob, jak se k nim dostat.</p>
+        <p>A když zrovna nevedu semináře, věnuji se oceňování stavebních prací a demolic. Na první pohled odlišné obory, ale v obou je důležitá přesnost, souvislosti a schopnost vidět celek.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sand">
+    <div class="wrap">
+      <p class="accent-line">„Odpovědi máte v sobě. Konstelace je způsob, jak se k nim dostat.“</p>
+    </div>
+  </section>
+
+  <section class="teal-band cta-band">
+    <div class="wrap">
+      <h2>Přijďte se podívat</h2>
+      <p>Nejlepší způsob, jak konstelace poznat, je zažít je – klidně nejdřív jen jako zástupce.</p>
+      <a class="btn" href="https://konstelace-sternberk.reenio.cz" target="_blank" rel="noopener">Podívat se na termíny</a>
+    </div>
+  </section>
+</main>
+
+<!-- ============================================================
+     STRÁNKA: METODA A PRŮBĚH
+============================================================ -->
+<main id="page-metoda" class="page">
+  <section>
+    <div class="wrap narrow">
+      <p class="eyebrow">Popis metody</p>
+      <h2 class="sec">Rodinné konstelace – co to je a jak to funguje</h2>
+      <p class="lead">Každý z nás patří do nějakého systému: do rodiny, do rodu, do sítě vztahů, která začala dávno před naším narozením. V tomto systému platí neviditelná pravidla – a když se poruší, nese to někdo z nás. Často ten, kdo o tom nemá tušení.</p>
+      <p>Rodinné konstelace, metoda německého terapeuta Berta Hellingera, umí tato skrytá pouta zviditelnit. Ne teoreticky – doslova. V prostoru, před vašima očima.</p>
+    </div>
+  </section>
+
+  <section class="sand">
+    <div class="wrap">
+      <h2 class="sec">Tři věci, které rodina „hlídá“</h2>
+      <div class="rule-cards">
+        <div class="rule">
+          <div class="num">1</div>
+          <h3>Každý má právo patřit</h3>
+          <p>I ten, o kom se nemluví – zapomenutý předek, nenarozené dítě, černá ovce. Když je někdo vyloučen, systém ho nenechá zmizet: jeho příběh začne nevědomě žít někdo z potomků.</p>
+        </div>
+        <div class="rule">
+          <div class="num">2</div>
+          <h3>Pořadí se nedá obejít</h3>
+          <p>Rodiče jsou ti velcí, děti ti malí. Když dítě začne nést své rodiče – jejich smutky, jejich manželství, jejich starosti – platí za to vyčerpáním, které si nese do dospělosti.</p>
+        </div>
+        <div class="rule">
+          <div class="num">3</div>
+          <h3>Dávání a přijímání v rovnováze</h3>
+          <p>Kdo ve vztahu dlouhodobě jen dává, nebo jen bere, ten rovnováhu poruší. A systém si ji dřív nebo později vyžádá zpět.</p>
+        </div>
+      </div>
+      <p style="margin-top:28px;max-width:44em">Na těchto třech pravidlech stojí většina témat, se kterými lidé na konstelace přicházejí.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap narrow">
+      <p class="eyebrow">Průběh</p>
+      <h2 class="sec">Jak vypadá seminář ve Šternberku</h2>
+      <div class="timeline">
+        <div class="step">
+          <h3>Přivítání a úvod</h3>
+          <p>Sejde se malá skupina. Vysvětlím, jak den proběhne, domluvíme se na pravidlech – dobrovolnost a mlčenlivost jsou základ.</p>
+        </div>
+        <div class="step">
+          <h3>Zadání tématu</h3>
+          <p>Kdo chce stavět svou konstelaci, řekne mi v krátkosti, co řeší. Nemusíte nic vyprávět celé skupině a nemusíte znát rodinnou historii dopodrobna.</p>
+        </div>
+        <div class="step">
+          <h3>Výběr zástupců</h3>
+          <p>Z ostatních účastníků si vyberete zástupce za členy své rodiny a rozestavíte je v prostoru – podle pocitu, ne podle rozumu.</p>
+        </div>
+        <div class="step">
+          <h3>Konstelace</h3>
+          <p>Zástupci začnou vnímat pocity a vztahy, které patří vašemu systému. Tady se děje to podstatné: skryté se stává viditelným. Provázím proces, navrhuji kroky a věty – nikdy netlačím.</p>
+        </div>
+        <div class="step">
+          <h3>Obraz řešení</h3>
+          <p>Hledáme uspořádání, ve kterém má každý své místo a vám se uleví. Na závěr si do něj můžete stoupnout sami.</p>
+        </div>
+        <div class="step">
+          <h3>Uzavření</h3>
+          <p>Zástupci vystoupí z rolí, je prostor pro doznění. Co se otevřelo ve skupině, zůstává ve skupině.</p>
+        </div>
+      </div>
+      <p style="margin-top:30px">Kdo nechce stavět vlastní téma, je na semináři stejně důležitý – jako zástupce. Mnoho lidí říká, že role, do kterých byli vybráni, jim řekly o nich samotných víc, než čekali.</p>
+    </div>
+  </section>
+
+  <section class="sand">
+    <div class="wrap split">
+      <div>
+        <h2 class="sec">S čím lidé přicházejí</h2>
+        <ul class="plain">
+          <li>opakující se vzorce ve vztazích a partnerství</li>
+          <li>vztahy s rodiči a sourozenci, role „té rozumné“ v rodině</li>
+          <li>vyčerpání, úzkosti a smutky bez zjevné příčiny</li>
+          <li>témata rodu: co se dědí, o čem se mlčí, co se opakuje</li>
+          <li>rodičovství – abych dětem nepředala, co nesu sama</li>
+        </ul>
+      </div>
+      <div>
+        <div class="photo wide frame-seminar">
+          <img src="seminar.webp" alt="Účastníci semináře v konstelaci, klidná soustředěná atmosféra">
+        </div>
+        <p class="photo-caption">Moment ze semináře – ticho, soustředění, prostor pro to, co se ukáže.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap narrow">
+      <div class="honest">
+        <h3>Poctivě a na rovinu: co konstelace nejsou</h3>
+        <p>Konstelace nejsou psychoterapie ani lékařská péče a nenahrazují je. Nejsou to čáry a není to jednorázový zázrak – to hlavní se odehrává v týdnech po semináři, kdy uviděné začne pracovat ve vašem životě.</p>
+        <p>Pokud procházíte psychiatrickou nebo psychoterapeutickou léčbou, domluvte se prosím před přihlášením se svým lékařem či terapeutem. A pokud si nejste jistí, jestli je konstelace pro vás, <a href="#kontakt" data-nav="kontakt">napište mi</a> – poradíme se.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="teal-band cta-band">
+    <div class="wrap">
+      <h2>Zažijte to na vlastní kůži</h2>
+      <p>Číst o konstelacích je jako číst o plavání. Skutečné porozumění přijde až v prostoru.</p>
+      <a class="btn" href="https://konstelace-sternberk.reenio.cz" target="_blank" rel="noopener">Podívat se na termíny</a>
+    </div>
+  </section>
+</main>
+
+<!-- ============================================================
+     STRÁNKA: KONTAKT
+============================================================ -->
+<main id="page-kontakt" class="page">
+  <section>
+    <div class="wrap contact-grid">
+      <div>
+        <p class="eyebrow">Kontakt</p>
+        <h2 class="sec">Ozvěte se</h2>
+        <p>Máte otázku, nebo si nejste jistí, jestli jsou konstelace pro vás? Napište mi. Odpovídám osobně a žádná otázka není hloupá – většina účastníků mi před první návštěvou psala.</p>
+        <ul class="info-list">
+          <li><b>Petr</b> · rodinnevzorce.cz</li>
+          <li><b>E-mail:</b> <span class="todo">info@rodinnevzorce.cz</span></li>
+          <li><b>Telefon:</b> <span class="todo">774 725 384</span> </li>
+          <li><b>Termíny a přihlášení:</b> <a href="https://konstelace-sternberk.reenio.cz" target="_blank" rel="noopener">konstelace-sternberk.reenio.cz</a></li>
+          
+<li><b>Sledujte mě:</b>
+<a href="https://www.facebook.com/profile.php?id=61587422106862" target="_blank" rel="noopener" style="text-decoration:none;margin-right:14px;">
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" style="vertical-align:middle"><path fill="currentColor" d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12"/></svg>
+ Facebook</a>
+<a href="https://www.instagram.com/rodinne_vzorce" target="_blank" rel="noopener" style="text-decoration:none;">
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" style="vertical-align:middle"><path fill="currentColor" d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4A5.8 5.8 0 0 1 16.2 22H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6m9.65 1.5a1.15 1.15 0 1 1-1.15 1.15a1.15 1.15 0 0 1 1.15-1.15M12 7a5 5 0 1 1-5 5a5 5 0 0 1 5-5m0 2a3 3 0 1 0 3 3a3 3 0 0 0-3-3"/></svg>
+ Instagram</a>
+</li>
+
+        </ul>
+        <div style="margin-top:30px">
+          <a class="btn" href="https://konstelace-sternberk.reenio.cz" target="_blank" rel="noopener">Podívat se na termíny</a>
+        </div>
+      </div>
+      <div>
+        <div class="photo wide frame-tea" style="margin-bottom:12px">
+          <img src="tea.webp" alt="Připravené šálky čaje na dřevěném stole pro účastníky semináře">
+        </div>
+        <p class="photo-caption" style="margin-bottom:36px">Jste vítáni – i beze slov.</p>
+        <h2 class="sec" style="font-size:1.4rem">Nejčastější otázky</h2>
+        <div class="faq">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Musím mít připravené téma?</button>
+            <div class="faq-a">Ne. Stačí přijít – téma se často vyjasní až na místě. A můžete být i jen zástupcem.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Uvidí a uslyší mě celá skupina?</button>
+            <div class="faq-a">Své téma mi řeknete jen v krátkosti. Skupina drží mlčenlivost: co se otevře na semináři, zůstává tam.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Jak se přihlásím?</button>
+            <div class="faq-a">Přes rezervační systém na <a href="https://konstelace-sternberk.reenio.cz" target="_blank" rel="noopener">konstelace-sternberk.reenio.cz</a>. Po přihlášení vám přijde potvrzení se všemi informacemi.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Kdy konstelace nejsou vhodné?</button>
+            <div class="faq-a">V akutní psychické krizi a při probíhající psychiatrické či psychoterapeutické léčbě bez souhlasu vašeho lékaře nebo terapeuta. Když si nejste jistí, napište mi předem.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#domu" data-nav="domu">rodinnevzorce<span>.cz</span></a>
+        <p style="margin-top:10px;max-width:26em">Skupinové rodinné konstelace, jednou měsíčně, v malé skupině a bezpečném prostoru.</p>
+      </div>
+      <ul class="foot-links">
+        <li><a href="#domu" data-nav="domu">Domů</a></li>
+        <li><a href="#o-mne" data-nav="o-mne">O mně</a></li>
+        <li><a href="#metoda" data-nav="metoda">Metoda a průběh</a></li>
+        <li><a href="#kontakt" data-nav="kontakt">Kontakt</a></li>
+        <li><a href="https://konstelace-sternberk.reenio.cz" target="_blank" rel="noopener">Termíny</a></li>
+      </ul>
+    </div>
+    <p class="foot-note">Semináře nenahrazují lékařskou ani psychoterapeutickou péči. · rodinne-konstelace.org</p>
+  </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var pages = ["domu", "o-mne", "metoda", "kontakt"];
+
+  function showPage(id) {
+    if (pages.indexOf(id) === -1) { id = "domu"; }
+    for (var i = 0; i < pages.length; i++) {
+      var el = document.getElementById("page-" + pages[i]);
+      if (el) { el.classList.toggle("visible", pages[i] === id); }
+    }
+    var links = document.querySelectorAll("[data-nav]");
+    for (var j = 0; j < links.length; j++) {
+      links[j].classList.toggle("active", links[j].getAttribute("data-nav") === id && links[j].closest(".nav-links") !== null);
+    }
+    window.scrollTo(0, 0);
+    var menu = document.getElementById("navLinks");
+    var toggle = document.getElementById("menuToggle");
+    if (menu) { menu.classList.remove("open"); }
+    if (toggle) { toggle.setAttribute("aria-expanded", "false"); }
+  }
+
+  function currentPage() {
+    var h = window.location.hash.replace("#", "");
+    return h || "domu";
+  }
+
+  window.addEventListener("hashchange", function () { showPage(currentPage()); });
+  showPage(currentPage());
+
+  // mobilni menu
+  var toggle = document.getElementById("menuToggle");
+  var menu = document.getElementById("navLinks");
+  if (toggle && menu) {
+    toggle.addEventListener("click", function () {
+      var open = menu.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  }
+
+  // FAQ akordeon
+  var qs = document.querySelectorAll(".faq-q");
+  for (var k = 0; k < qs.length; k++) {
+    qs[k].addEventListener("click", function () {
+      var item = this.parentElement;
+      var isOpen = item.classList.toggle("open");
+      this.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+  }
+});
+</script>
+</body>
+</html>
