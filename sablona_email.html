@@ -1,0 +1,127 @@
+<!--
+  ŠABLONA E-MAILU – Rodinné konstelace Šternberk
+  ------------------------------------------------
+  Zástupné značky, které skript / Brevo doplní:
+    {{ contact.FIRSTNAME }} .... jméno příjemce (Brevo; když chybí, viz fallback níže)
+    {{ params.DATUM }} ......... např. "sobota 15. srpna 2026"
+    {{ params.CAS }} ........... např. "9:00 – 17:00"
+    {{ params.MISTO }} ......... např. "Kulturní dům, Nádražní 5, Šternberk"
+    {{ params.CENA }} .......... např. "1 200 Kč"
+    {{ params.KAPACITA }} ...... např. "12"
+    {{ params.ODKAZ }} ......... přímý odkaz na rezervaci konkrétního termínu
+    {{ unsubscribe }} .......... odkaz na odhlášení (systémový tag Brevo – NEMĚNIT)
+
+  Šířka 600 px, tabulkový layout, inline styly = funguje i ve starém Outlooku.
+-->
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nový termín konstelací</title>
+</head>
+<body style="margin:0; padding:0; background-color:#F7F2EA; -webkit-font-smoothing:antialiased;">
+
+<!-- Preheader: text v náhledu schránky, v těle e-mailu neviditelný -->
+<div style="display:none; max-height:0; overflow:hidden; opacity:0; color:#F7F2EA; font-size:1px; line-height:1px;">
+  Skupina je malá, kapacita omezená. Přihlásit se můžete jedním kliknutím.
+</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F7F2EA;">
+  <tr>
+    <td align="center" style="padding:32px 16px;">
+
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:100%; background-color:#FFFFFF; border-radius:4px;">
+
+        <!-- Hlavička -->
+        <tr>
+          <td style="background-color:#1F6F6B; padding:22px 32px;">
+            <div style="font-family:Georgia, 'Times New Roman', serif; font-size:18px; color:#FFFFFF; letter-spacing:0.3px;">
+              Rodinné konstelace <span style="color:#E8C9B4;">Šternberk</span>
+            </div>
+          </td>
+        </tr>
+
+        <!-- Tělo -->
+        <tr>
+          <td style="padding:36px 32px 8px 32px; font-family:Georgia, 'Times New Roman', serif; font-size:17px; line-height:1.65; color:#2B2B2B;">
+
+            <p style="margin:0 0 20px 0;">Dobrý den, {{ contact.FIRSTNAME }},</p>
+
+            <p style="margin:0 0 26px 0;">
+              vypisuji další termín skupinových rodinných konstelací ve Šternberku.
+            </p>
+
+            <!-- Blok s fakty -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F7F2EA; border-left:3px solid #C4643C;">
+              <tr>
+                <td style="padding:20px 24px; font-family:Georgia, 'Times New Roman', serif; font-size:16px; line-height:1.8; color:#2B2B2B;">
+                  <strong style="color:#1F6F6B;">Kdy:</strong> {{ params.DATUM }}, {{ params.CAS }}<br>
+                  <strong style="color:#1F6F6B;">Kde:</strong> {{ params.MISTO }}<br>
+                  <strong style="color:#1F6F6B;">Cena:</strong> {{ params.CENA }}<br>
+                  <strong style="color:#1F6F6B;">Kapacita:</strong> {{ params.KAPACITA }} míst
+                </td>
+              </tr>
+            </table>
+
+            <!-- Tlačítko -->
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:30px 0 30px 0;">
+              <tr>
+                <td align="center" bgcolor="#C4643C" style="border-radius:3px;">
+                  <a href="{{ params.ODKAZ }}"
+                     style="display:inline-block; padding:14px 30px; font-family:Georgia, 'Times New Roman', serif; font-size:16px; color:#FFFFFF; text-decoration:none; font-weight:bold;">
+                    Rezervovat místo
+                  </a>
+                </td>
+              </tr>
+            </table>
+
+            <p style="margin:0 0 20px 0;">
+              Přijít můžete se svým tématem, nebo jen jako zástupce – i to je plnohodnotná
+              zkušenost a lidé si z ní často odnesou stejně jako z vlastní konstelace.
+              Téma nemusíte mít připravené dopředu. Většinou se vyjasní až na místě.
+            </p>
+
+            <p style="margin:0 0 28px 0;">
+              Pokud váháte nebo si nejste jistí, jestli jsou konstelace zrovna teď pro vás,
+              napište mi. Odpovídám osobně a žádná otázka není hloupá.
+            </p>
+
+            <p style="margin:0 0 4px 0;">Petr</p>
+            <p style="margin:0 0 36px 0; font-size:15px; color:#6B6B6B;">
+              rodinné konstelace Šternberk<br>
+              <a href="mailto:info@rodinnevzorce.cz" style="color:#1F6F6B; text-decoration:none;">info@rodinnevzorce.cz</a>
+              &nbsp;·&nbsp; 774 725 384 &nbsp;·&nbsp;
+              <a href="https://rodinnevzorce.cz" style="color:#1F6F6B; text-decoration:none;">rodinnevzorce.cz</a>
+            </p>
+
+          </td>
+        </tr>
+
+        <!-- Patička -->
+        <tr>
+          <td style="padding:22px 32px 28px 32px; border-top:1px solid #E6DED3; font-family:Arial, Helvetica, sans-serif; font-size:12px; line-height:1.7; color:#8A8A8A;">
+            <p style="margin:0 0 10px 0;">
+              Tento e-mail vám posílám proto, že jste se v minulosti přihlásili na můj seminář.
+              Píšu jen tehdy, když vypisuji nový termín – zpravidla jednou za měsíc.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              <a href="{{ unsubscribe }}" style="color:#8A8A8A; text-decoration:underline;">Odhlásit odběr</a>
+              &nbsp;·&nbsp;
+              <a href="https://rodinnevzorce.cz/zasady-ochrany-osobnich-udaju.html" style="color:#8A8A8A; text-decoration:underline;">Zásady zpracování osobních údajů</a>
+            </p>
+            <p style="margin:0; color:#A8A8A8;">
+              Petr Nikl, IČO 74460030, Žitná 470/8, 785 01 Šternberk<br>
+              Semináře nenahrazují lékařskou ani psychoterapeutickou péči.
+            </p>
+          </td>
+        </tr>
+
+      </table>
+
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
